@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美食交流与菜品分享平台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="publicView" class="public-shell">
+      <section class="hero">
+        <img src="./assets/food-feature.jpg" alt="美食分享场景" />
+        <div class="hero-copy">
+          <span>Cloudflare Pages + Worker API + Supabase</span>
+          <h1>美食交流与菜品分享平台</h1>
+          <p>中式美食、外国美食、热门菜品、资讯、论坛和留言统一演示。</p>
+        </div>
+      </section>
+      <section class="login-panel">
+        <div class="brand">
+          <img src="./assets/logo.png" alt="" />
+          <div>
+            <strong>Food Share</strong>
+            <span>Portfolio Demo</span>
+          </div>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label>角色<select id="role"><option value="admin">管理员</option><option value="user">用户</option></select></label>
+          <label>账号<input id="username" value="abo" autocomplete="username" /></label>
+          <label>密码<input id="password" value="abo" type="password" autocomplete="current-password" /></label>
+          <button type="submit">进入演示后台</button>
+          <p id="loginMessage" role="status"></p>
+        </form>
+        <div class="demo-accounts">
+          <button type="button" data-login="admin/abo/abo">管理员</button>
+          <button type="button" data-login="user/11/11">普通用户</button>
+        </div>
+      </section>
+    </main>
+
+    <main id="appView" class="app-shell" hidden>
+      <aside class="sidebar">
+        <div class="brand compact">
+          <img src="./assets/logo.png" alt="" />
+          <div>
+            <strong>Food Share</strong>
+            <span>美食管理</span>
+          </div>
+        </div>
+        <nav id="moduleNav"></nav>
+      </aside>
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="roleText">在线演示</p>
+            <h2 id="pageTitle">仪表盘</h2>
+          </div>
+          <div class="top-actions">
+            <button id="refreshButton" type="button">刷新</button>
+            <button id="logoutButton" type="button">退出</button>
+          </div>
+        </header>
+
+        <section id="dashboard" class="dashboard"></section>
+        <section id="modulePanel" class="module-panel" hidden>
+          <div class="panel-toolbar">
+            <div>
+              <h3 id="moduleTitle"></h3>
+              <p id="moduleSummary"></p>
+            </div>
+            <div class="toolbar-actions">
+              <input id="searchInput" placeholder="搜索当前列表" />
+              <button id="addButton" type="button">新增</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="editDialog">
+      <form id="editForm" method="dialog">
+        <header>
+          <h3 id="dialogTitle">编辑</h3>
+          <button id="closeDialogButton" type="button" aria-label="关闭">x</button>
+        </header>
+        <div id="formFields" class="form-grid"></div>
+        <footer>
+          <button id="cancelEditButton" type="button">取消</button>
+          <button type="submit">保存</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" hidden></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
