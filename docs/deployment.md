@@ -96,7 +96,7 @@ npx wrangler@3 deploy
 部署 Pages：
 
 ```powershell
-npx wrangler@3 pages deploy site --project-name ot-springbooth10zf --branch main
+npx wrangler@3 pages deploy original-site --project-name ot-springbooth10zf --branch main
 ```
 
 ## 验证记录

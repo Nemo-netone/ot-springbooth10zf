@@ -88,6 +88,13 @@ http://localhost:4173
 npx wrangler pages dev site
 ```
 
+## Original frontend recovery (2026-07-12)
+
+- Production directory: `original-site/`; legacy `site/` remains fallback only.
+- Source basis: original public frontend under `src/main/resources/front/front` and Vue admin under `src/main/resources/admin/admin`.
+- Online compatibility: Pages Worker uses schema `ot_springbooth10zf`; admin/user login, news list, and news create/update/delete were verified.
+- Stable URL: `https://ot-springbooth10zf.pages.dev`.
+
 ## 环境变量
 
 Cloudflare Pages / Worker 需要配置：
