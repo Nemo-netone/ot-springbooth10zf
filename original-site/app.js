@@ -103,8 +103,8 @@ function bindEvents() {
       $("#username").value = "abo";
       $("#password").value = "abo";
     } else {
-      $("#username").value = "11";
-      $("#password").value = "11";
+      $("#username").value = "用户账号1";
+      $("#password").value = "123456";
     }
   });
 
@@ -154,7 +154,7 @@ function bindEvents() {
 async function handleAutoLogin() {
   const auto = new URLSearchParams(location.search).get("auto");
   if (!auto || state.user) return;
-  const preset = auto === "user" ? { role: "user", username: "11", password: "11" } : { role: "admin", username: "abo", password: "abo" };
+  const preset = auto === "user" ? { role: "user", username: "用户账号1", password: "123456" } : { role: "admin", username: "abo", password: "abo" };
   $("#role").value = preset.role;
   $("#username").value = preset.username;
   $("#password").value = preset.password;

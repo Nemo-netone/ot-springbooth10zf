@@ -17,7 +17,7 @@ export default {
       if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders(request, env) });
       if (env.ASSETS && !url.pathname.startsWith("/api/") && url.pathname !== "/health") return env.ASSETS.fetch(request);
 
-      if (url.pathname === "/health") {
+      if (url.pathname === "/health" || url.pathname === "/api/health") {
         return json(request, env, result(true, "ok", { service: "ot-springbooth10zf-api", schema: schema(env), time: new Date().toISOString() }));
       }
 

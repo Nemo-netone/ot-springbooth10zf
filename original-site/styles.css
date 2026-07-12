@@ -489,7 +489,7 @@ dialog h3 {
   .public-shell,
   .app-shell,
   .dashboard-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero {
